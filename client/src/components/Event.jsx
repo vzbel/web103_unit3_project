@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import '../css/Event.css'
 
+// id, time, timeRemaining, image, title, date
+
 const Event = (props) => {
 
     const [event, setEvent] = useState([])
