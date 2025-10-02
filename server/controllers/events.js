@@ -1,4 +1,4 @@
-import { pool } from "../config/database";
+import { pool } from "../config/database.js";
 
 const getEvents = async (req, res) => {
   try {
@@ -10,5 +10,5 @@ const getEvents = async (req, res) => {
 };
 
 export default {
-    getEvents,
-}
+  getEvents,
+};
