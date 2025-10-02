@@ -3,7 +3,10 @@ import path from "path";
 import favicon from "serve-favicon";
 import dotenv from "dotenv";
 
+
 // import the router from your routes file
+import locationsRouter from "./routes/locations";
+import eventsRouter from "./routes/events";
 
 dotenv.config();
 
@@ -21,6 +24,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // specify the api path for the server to use
+app.use("/events", locationsRouter);
+app.use("/locations", eventsRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.get("/*", (_, res) => res.sendFile(path.resolve("public", "index.html")));
