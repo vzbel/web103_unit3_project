@@ -27,7 +27,7 @@ const LocationEvents = ({index}) => {
             {location.length > 0  ?
             <header>
                 <div className='location-image'>
-                    {/* <img src={location[0].imageURL} /> */}
+                    <img src={location[0].image} />
                 </div>
 
                 <div className='location-info'>

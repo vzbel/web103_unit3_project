@@ -57,7 +57,8 @@ const createLocationsTable = async () => {
             name VARCHAR(255) NOT NULL,
             address VARCHAR(255) NOT NULL,
             city VARCHAR(255) NOT NULL,
-            state VARCHAR(8) NOT NULL
+            state VARCHAR(8) NOT NULL,
+            image VARCHAR(255) NOT NULL
         );
     `;
 
@@ -71,9 +72,10 @@ const createLocationsTable = async () => {
 
 const seedLocationsTable = async () => {
   await createLocationsTable();
-  locationData.forEach((location) => {
+  // insert in order
+  for (const location of locationData) {
     const insertQuery = {
-      text: "INSERT INTO locations (name, address, city, state) VALUES ($1, $2, $3, $4)",
+      text: "INSERT INTO locations (name, address, city, state, image) VALUES ($1, $2, $3, $4, $5)",
     };
 
     const values = [
@@ -81,16 +83,16 @@ const seedLocationsTable = async () => {
       location.address,
       location.city,
       location.state,
+      location.image,
     ];
 
-    pool.query(insertQuery, values, (err, res) => {
-      if (err) {
-        console.error("Error inserting location", err);
-        return;
-      }
+    try {
+      await pool.query(insertQuery, values);
       console.log(`${location.name} added successfully`);
-    });
-  });
+    } catch (err) {
+      console.error("Error inserting location", err);
+    }
+  }
 };
 
 const runReset = async () => {
