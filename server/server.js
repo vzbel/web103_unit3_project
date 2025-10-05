@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
 });
 
 // specify the api path for the server to use
-app.use("/events", eventsRouter);
-app.use("/locations", locationsRouter);
+app.use("/api/events", eventsRouter);
+app.use("/api/locations", locationsRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.get("/*", (_, res) => res.sendFile(path.resolve("public", "index.html")));

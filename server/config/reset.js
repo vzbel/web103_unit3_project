@@ -9,8 +9,8 @@ const createEventsTable = async () => {
             id SERIAL PRIMARY KEY,
             title VARCHAR(255) NOT NULL,
             image VARCHAR(255) NOT NULL,
-            date DATE NOT NULL,
-            time TIME NOT NULL,
+            date VARCHAR(255) NOT NULL,
+            time VARCHAR(255) NOT NULL,
             remaining VARCHAR(255) NOT NULL,
             location_id INT REFERENCES locations(id) NOT NULL
         );
