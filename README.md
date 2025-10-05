@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-![Unit 3 Gif](unit3projectgifrec.gif)
+![Unit 3 Gif](unit3gifrec.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 
