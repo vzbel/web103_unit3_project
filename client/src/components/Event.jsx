@@ -14,7 +14,6 @@ const Event = (props) => {
         (async () => {
             try {
                 const eventData = await EventsAPI.getEventsById(props.id)
-                console.log(eventData);
                 setEvent(eventData[0])
             }
             catch (error) {
